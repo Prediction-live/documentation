@@ -1,7 +1,7 @@
 All the above schemas are part of the `public` table. All columns come with a `created_at` and `updated_at` columns of type `timestamptmz`
 # Core
 ## users
-The `users` table is the core table to handle users. Fields:
+The `users` table is the core table to handle users.
 
 | Field      | Type        | Description                                     |
 | ---------- | ----------- | ----------------------------------------------- |
@@ -11,8 +11,8 @@ The `users` table is the core table to handle users. Fields:
 | status     | enum        | active, suspended, banned, pending_kyc, deleted |
 
 ## privy_accounts
-Isolates external auth identifiers and states from app user
-
+Isolates external auth identifiers and states from app user. Each row represents an mean of authentication of an user. For example, if a user authenticates via Google and Twitch, I will have two rows, linked to the same `users` row
+ 
 | Field         | Type         | Description                      |
 | ------------- | ------------ | -------------------------------- |
 | id            | uuid PK      |                                  |
@@ -90,7 +90,7 @@ Individual user entries into a market option, immutable bet intent + on-chain li
 | error_reason | string  | nullable. Short string to detail the error |
 
 
-## settlements
+## **settlements**
 Results per market and per user bet
 
 | Field             | Type    | Description                                                       |
@@ -102,7 +102,23 @@ Results per market and per user bet
 | payout_atomic     | float8  | Amount (lamports) earned through the corresponding bet and market |
 | settled_at        | float8  | POSIX time, transaction settled (win, lose, void)                 |
 | settlement_tx_sig | text    | nullable                                                          |
-|                   |         |                                                                   |
 
 
-# Facilitators
+
+# Security
+## user_roles
+Stores user permissions levels on the database. Tracks every move. One row per role.
+
+
+| Field            | Type        | Description                             |
+| ---------------- | ----------- | --------------------------------------- |
+| id               | uuid PK     |                                         |
+| user_id          | uuid        | FK to users                             |
+| role             | enum        | admin, ops, risk, partner_view, support |
+| scope_partner_id | uuid        | FK -> partners (not implemented yet)    |
+| is_active        | bool        | default: true                           |
+| granted_by       | uuid        | FK to users                             |
+| granted_at       | timestamptz | default now                             |
+| revoked_at       | timestamptz | nullable                                |
+| notes            | text        | nullable                                |
+
