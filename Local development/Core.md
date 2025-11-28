@@ -7,7 +7,7 @@
 2. Run `supabase init`
 3. Run `supabase login`, connect (needs a token from the Users panel of the project)
 4. Run `supabase link --project-link <projectRef>` (find the project ref under Settings > General)
-5. Run `supabase db pull`, this create a migration file in `supabase/migrations/`, representing curent production state
+5. Run `supabase db pull`, this create a migration file in `supabase/migrations/`, representing current production state
 6. Run `supabase start`
 7. Supabase runs at `http://127.0.0.1:54323` / `localhost:54323`
 # Workflow
