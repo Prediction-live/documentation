@@ -30,8 +30,8 @@
 | -------------------------------------- | ------------------------------------------------------ |
 | `NEXT_PUBLIC_SUPABASE_URL`             | `http://127.0.0.1:54321`                               |
 | `SUPABASE_URL`                         | `http://127.0.0.1:54321`                               |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Copy **anon key** from `supabase status`               |
-| `SUPABASE_SECRET_KEY`                  | Copy **service_role key** from `supabase status`       |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Copy **Publishable key** from `supabase status`        |
+| `SUPABASE_SECRET_KEY`                  | Copy **Secret key** from `supabase status`             |
 | `SUPABASE_JWKS`                        | `http://127.0.0.1:54321/auth/v1/.well-known/jwks.json` |
 ## Postgres Database
 | **Variable**               | **Value**                                                 |
