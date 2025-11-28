@@ -1,6 +1,6 @@
 # Requirements
 - Containerization engine (ARM use [OrbStack](https://orbstack.dev/))
-- [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started) (install via brew: `brew install supabase/tap/supabase`)
+- [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started) (install via [brew](https://brew.sh/): `brew install supabase/tap/supabase`)
 
 # Setup
 1. Go to the project's root
